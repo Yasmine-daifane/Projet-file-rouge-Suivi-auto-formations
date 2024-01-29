@@ -122,8 +122,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-        
-                            <div class="card card-primary">
+                            <div class="card card-info">
                                 <div class="card-header">
                                     <h3 class="card-title">Ajouter QCM</h3>
                                 </div>
@@ -131,10 +130,9 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="qcmName">Nom du QCM</label>
-                                            <input name="qcmName" type="text" class="form-control" id="qcmName"
-                                                placeholder="Nom du QCM">
+                                            <input name="qcmName" type="text" class="form-control" id="qcmName" placeholder="Nom du QCM">
                                         </div>
-        
+            
                                         <div class="form-group">
                                             <label for="chapterSelect">Sélectionner le chapitre</label>
                                             <select name="chapterSelect" class="form-control" id="chapterSelect">
@@ -143,100 +141,99 @@
                                                 <!-- Add more chapters as needed -->
                                             </select>
                                         </div>
-        
+            
                                         <div class="form-group" id="questionsContainer">
                                             <label for="questions">Questions</label>
-                                            <div class="question">
-                                                <input name="questions[]" type="text" class="form-control" placeholder="Entrez la question">
+            
+                                            <!-- Individual input fields for each question -->
+                                            <div class="question mb-4">
+                                                <input name="questions[]" type="text" class="form-control mb-4 " placeholder="Entrez la question">
+            
+                                                <!-- Options for the question -->
                                                 <div class="options">
-                                                    <label>
-                                                        <input name="options[]" type="radio" value="Option 1"> Option 1
-                                                    </label>
-                                                    <label>
-                                                        <input name="options[]" type="radio" value="Option 2"> Option 2
-                                                    </label>
-                                                    <label>
-                                                        <input name="options[]" type="radio" value="Option 3"> Option 3
-                                                    </label>
-                                                </div>
-                                                <div class="correct-answer">
-                                                    <label>
-                                                        <input name="correctAnswer" type="radio" value="Option 1"> Option 1 (Correct Answer)
-                                                    </label>
-                                                    <label>
-                                                        <input name="correctAnswer" type="radio" value="Option 2"> Option 2 (Correct Answer)
-                                                    </label>
-                                                    <label>
-                                                        <input name="correctAnswer" type="radio" value="Option 3"> Option 3 (Correct Answer)
-                                                    </label>
+                                                    <div class="option d-flex mb-2">
+                                                        <input class="mr-1" name="correctAnswer" type="radio" value="1">
+                                                        <input name="options[]" type="text" class="form-control" placeholder="Option 1">
+                                                    </div>
+            
+                                                    <div class="option d-flex mb-2">
+                                                        <input class="mr-1" name="correctAnswer" type="radio" value="2">
+                                                        <input name="options[]" type="text" class="form-control" placeholder="Option 2">
+                                                    </div>
+            
+                                                    <div class="option d-flex mb-2 " >
+                                                        <input class="mr-1" name="correctAnswer" type="radio" value="3">
+                                                        <input name="options[]" type="text" class="form-control" placeholder="Option 3">
+                                                    </div>
                                                 </div>
                                             </div>
+            
+                                            <button type="button" class="btn btn-info" onclick="addQuestion()">Ajouter une question</button>
                                         </div>
-        
-                                        <button type="button" class="btn btn-primary" onclick="addQuestion()">Ajouter une question</button>
-        
                                     </div>
-        
+            
                                     <div class="card-footer">
-                                        <a href="../index.html" class="btn btn-default">Annuler</a>
-                                        <button type="submit" class="btn btn-primary">Soumettre</button>
+                                        <a href="/Formateur/qcms/index.html" class="btn btn-default">Annuler</a>
+                                        <a href="/Formateur/qcms/index.html" type="submit" class="btn btn-info">Submit</a>
                                     </div>
                                 </form>
                             </div>
-        
                         </div>
                     </div>
                 </div>
-        
             </section>
-        
+            
             <script>
                 function addQuestion() {
                     var questionsContainer = document.getElementById('questionsContainer');
-        
+            
                     var questionDiv = document.createElement('div');
-                    questionDiv.className = 'question';
-        
+                    questionDiv.className = 'question mb-3';
+            
+                    var questionLabel = document.createElement('label');
+                    questionLabel.for = 'question';
+                    questionLabel.innerHTML = 'question';
+            
                     var questionInput = document.createElement('input');
                     questionInput.name = 'questions[]';
                     questionInput.type = 'text';
-                    questionInput.className = 'form-control';
-                    questionInput.placeholder = 'Entrez la question';
-        
-                    var optionsDiv = document.createElement('div');
-                    optionsDiv.className = 'options';
-        
-                    for (var i = 1; i <= 3; i++) {
-                        var optionLabel = document.createElement('label');
-                        var optionInput = document.createElement('input');
-                        optionInput.name = 'options[]';
-                        optionInput.type = 'radio';
-                        optionInput.value = 'Option ' + i;
-        
-                        optionLabel.appendChild(optionInput);
-                        optionLabel.appendChild(document.createTextNode(' Option ' + i));
-        
-                        optionsDiv.appendChild(optionLabel);
-                    }
-        
-                    var correctAnswerDiv = document.createElement('div');
-                    correctAnswerDiv.className = 'correct-answer';
-                    var correctAnswerLabel = document.createElement('label');
-                    var correctAnswerInput = document.createElement('input');
-                    correctAnswerInput.name = 'correctAnswer';
-                    correctAnswerInput.type = 'radio';
-                    correctAnswerInput.value = 'Correct Answer';
-        
-                    correctAnswerLabel.appendChild(correctAnswerInput);
-                    correctAnswerLabel.appendChild(document.createTextNode(' Correct Answer'));
-        
-                    correctAnswerDiv.appendChild(correctAnswerLabel);
-        
+                    questionInput.className = 'form-control mb-3';
+                    questionInput.placeholder = 'Question';
+            
+                    // Options for the question
+                    var optionDiv1 = createOptionDiv(1);
+                    var optionDiv2 = createOptionDiv(2);
+                    var optionDiv3 = createOptionDiv(3);
+            
+                    // Adding all elements to the questionDiv
+                    questionDiv.appendChild(questionLabel);
                     questionDiv.appendChild(questionInput);
-                    questionDiv.appendChild(optionsDiv);
-                    questionDiv.appendChild(correctAnswerDiv);
-        
+                    questionDiv.appendChild(optionDiv1);
+                    questionDiv.appendChild(optionDiv2);
+                    questionDiv.appendChild(optionDiv3);
+            
                     questionsContainer.appendChild(questionDiv);
+                }
+            
+                function createOptionDiv(optionNumber) {
+                    var optionDiv = document.createElement('div');
+                    optionDiv.className = 'option d-flex mb-2 mr-1';
+            
+                    var radioInput = document.createElement('input');
+                    radioInput.name = 'correctAnswer';
+                    radioInput.type = 'radio';
+                    radioInput.value = optionNumber;
+            
+                    var optionInput = document.createElement('input');
+                    optionInput.name = 'options[]';
+                    optionInput.type = 'text';
+                    optionInput.className = 'form-control mr-1';
+                    optionInput.placeholder = 'Option ' + optionNumber;
+            
+                    optionDiv.appendChild(radioInput);
+                    optionDiv.appendChild(optionInput);
+            
+                    return optionDiv;
                 }
             </script>
         

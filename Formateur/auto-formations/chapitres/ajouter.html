@@ -108,42 +108,39 @@
                     <div class="row">
                         <div class="col-md-12">
 
-                            <div class="card card-primary">
+                            <div class="card card-info">
                                 <div class="card-header">
                                     <h3 class="card-title">Ajouter chapitre</h3>
                                 </div>
                                 <form>
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Nom </label>
-                                            <input name="nom" type="text" class="form-control"
-                                                id="exampleInputEmail1" placeholder="Enter email">
+                                            <label for="nom">Nom</label>
+                                            <select name="chapterSelect" class="form-control" id="chapterSelect">
+                                                <option value="1">laravel</option>
+                                                <option value="2">Kotlin</option>
+                                                <!-- Add more chapters as needed -->
+                                            </select>
                                         </div>
-
+                                    
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Description</label>
-                                            <input name="description" type="password" class="form-control"
-                                                id="exampleInputPassword1" placeholder="Password">
+                                            <label for="description">Description</label>
+                                            <input name="description" type="text" class="form-control" id="description" placeholder="Entrez la description" value="it's">
                                         </div>
-
-
+                                    
+                                       
+                                    
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">date debut</label>
-                                            <input name="startDate" type="date" class="form-control"
-                                                id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">date fin</label>
-                                            <input name="endtDate" type="date" class="form-control"
-                                                id="exampleInputPassword1" placeholder="Password">
+                                            <label for="ordre">Ordre</label>
+                                            <input name="ordre" type="number" class="form-control" id="ordre" placeholder="Entrez l'ordre" value="3">
                                         </div>
 
                                     </div>
 
                                     <div class="card-footer">
-                                        <a href="./index.html" class="btn btn-default">Cancel</a>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a href="/Formateur/auto-formations/chapitres/index.html" class="btn btn-default">Cancel</a>
+                                        <a href="/Formateur/auto-formations/chapitres/index.html" class="btn btn-info">Submit</a>
+
                                     </div>
                                 </form>
                             </div>

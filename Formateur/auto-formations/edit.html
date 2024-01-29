@@ -126,42 +126,50 @@
                     <div class="row">
                         <div class="col-md-12">
 
-                            <div class="card card-primary">
+                            <div class="card card-info">
                                 <div class="card-header">
                                     <h3 class="card-title">Edit AutoFormation</h3>
                                 </div>
                                 <form>
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Nom </label>
-                                            <input name="nom" type="text" class="form-control"
-                                                id="exampleInputEmail1" placeholder="Enter email">
+                                            <label for="nom">Nom</label>
+                                            <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez le nom" value="Formation Laravel">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Description</label>
-                                            <input name="description" type="password" class="form-control"
-                                                id="exampleInputPassword1" placeholder="Password">
+                                            <label for="description">Description</label>
+                                            <input name="description" type="text" class="form-control" id="description" placeholder="Description de la formation" value="Formation avancée sur le framework Laravel">
                                         </div>
-
-
+                                       
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">date debut</label>
-                                            <input name="startDate" type="date" class="form-control"
-                                                id="exampleInputPassword1" placeholder="Password">
+                                            <label for="nombreChapitres">Nombre chapitres</label>
+                                            <input name="nombreChapitres" type="number" class="form-control" id="nombreChapitres" value="27">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">date fin</label>
-                                            <input name="endtDate" type="date" class="form-control"
-                                                id="exampleInputPassword1" placeholder="Password">
+                                            <label for="reference">Reference</label>
+                                            <input name="reference" type="url" class="form-control" id="reference" placeholder="Entrez la référence" pattern="https://.*" value="https://grafikart.fr/formations/laravel">
+                                            <small id="referenceHelp" class="form-text text-muted">Entrez un lien URL valide (commençant par https://).</small>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="startDate">Date début</label>
+                                            <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Date début" value="2023-05-01">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="endDate">Date fin</label>
+                                            <input name="endDate" type="date" class="form-control" id="endDate" placeholder="Date fin" value="2023-05-03">
                                         </div>
 
                                     </div>
 
                                     <div class="card-footer">
-                                        <a href="./index.html" class="btn btn-default">Cancel</a>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a href="/Formateur/auto-formations/index.html" class="btn btn-default">Cancel</a>
+                                        <a href="/Formateur/auto-formations/index.html" class="btn btn-info">Submit</a>
+
+                                      
                                     </div>
                                 </form>
                             </div>

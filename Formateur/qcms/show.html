@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +28,10 @@
     <link rel="stylesheet" href="../../Assets/plugins/daterangepicker/daterangepicker.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+    <!-- <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    /> -->
     <!-- summernote -->
     <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
     <script src="https://cdn.tiny.cloud/1/d2nq8cur7uv9c3ovyevwee5l5e5k2ym6hodsnpuuy1hyy1yf/tinymce/6/tinymce.min.js"
@@ -35,10 +39,16 @@
     <!-- head -->
 </head>
 
+
+
+
+
+
 <body class="sidebar-mini" style="height: auto;">
 
     <div class="wrapper">
-
+        
+        
 
         <!-- nav -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -69,7 +79,7 @@
                             <a href="./index.html" class="nav-link ">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                  AutoFormations
+                                 AutoFormations
                                 </p>
                             </a>
                         </li>
@@ -77,7 +87,7 @@
                             <a href="././chapitres/index.html" class="nav-link ">
                                 <i class="fa-solid fa-users pl-1 pr-1"></i>
                                 <p>
-                           chapitres
+                                  Chapitres
                                 </p>
                             </a>
                         </li>
@@ -85,20 +95,19 @@
                             <a href="/Formateur/qcms/index.html" class="nav-link ">
                                 <i class="fa-solid fa-users pl-1 pr-1"></i>
                                 <p>
-                                    Qcms
+                                 Qcms
                                 </p>
                             </a>
                         </li>
-
-
                         <li class="nav-item">
                             <a href="/Formateur/index.html" class="nav-link ">
                                 <i class="fa-solid fa-users pl-1 pr-1"></i>
                                 <p>
-                                  Statistiques
+                               Statistiques
                                 </p>
                             </a>
                         </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -111,76 +120,72 @@
         <div class="content-wrapper" style="min-height: 1302.4px;">
 
             <div class="content-header">
-              
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Details  de Qcm 1</h1>
+                        </div>
+         
             </div>
 
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-
-                            <div class="card card-info">
-                                <div class="card-header">
-                                    <h3 class="card-title">Ajouter AutoFormation</h3>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="col-sm-12">
+                                        <label for="nom">QCM Name:</label>
+                                        <p><!-- Add QCM Name dynamically here --></p>
+                                    </div>
+        
+                                    <div class="col-sm-12">
+                                        <label for="description">Chapter Name:</label>
+                                        <p>Model binding</p>
+                                    </div>
+        
+                                    <div class="col-sm-12">
+                                        <label for="description">Description:</label>
+                                        <p><!-- Add QCM Description dynamically here --></p>
+                                    </div>
+        
+                                    <div class="col-sm-12 mt-4">
+                                        <label for="questions">Questions :</label>
+                                        <!-- Loop through questions and options -->
+                                        <div class="questions-container">
+                                            <!-- Sample question -->
+                                            <div class="question">
+                                                <p>Question 1: <!-- Add Question dynamically here --></p>
+                                                <ul>
+                                                    <!-- Loop through options -->
+                                                    <li>Option 1: <!-- Add Option dynamically here --></li>
+                                                    <li>Option 2: <!-- Add Option dynamically here --></li>
+                                                    <li>Option 3: <!-- Add Option dynamically here --></li>
+                                                </ul>
+                                                <p>Correct Answer: <!-- Add Correct Answer dynamically here --></p>
+                                            </div>
+        
+                                            <!-- Repeat the structure for each question -->
+                                        </div>
+                                    </div>
                                 </div>
-                                <form>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <label for="nom">Nom</label>
-                                                <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez le nom" value="Formation Laravel">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <input name="description" type="text" class="form-control" id="description" placeholder="Description de la formation" value="Formation avancée sur le framework Laravel">
-                                            </div>
-                                           
-                                            <div class="form-group">
-                                                <label for="nombreChapitres">Nombre chapitres</label>
-                                                <input name="nombreChapitres" type="number" class="form-control" id="nombreChapitres" value="27">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="reference">Reference</label>
-                                                <input name="reference" type="url" class="form-control" id="reference" placeholder="Entrez la référence" pattern="https://.*" value="https://grafikart.fr/formations/laravel">
-                                                <small id="referenceHelp" class="form-text text-muted">Entrez un lien URL valide (commençant par https://).</small>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="startDate">Date début</label>
-                                                <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Date début" value="2023-05-01">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="endDate">Date fin</label>
-                                                <input name="endDate" type="date" class="form-control" id="endDate" placeholder="Date fin" value="2023-05-03">
-                                            </div>
-
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <a href="/Formateur/auto-formations/index.html" class="btn btn-default">Cancel</a>
-                                        <a href="/Formateur/auto-formations/index.html" class="btn btn-info" >Submit</a>
-                                       
-                                    </div>
-                                </form>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
+                <div class="card-footer">
+                    <a href="/Formateur/qcms/index.html" class="btn btn-default">Retour</a>
+                   
+                </div>
             </section>
 
-        </div>
-
- 
 
 
 
 
-
+    
+        
     <!-- scripts -->
     <!-- jQuery -->
     <script src="../../Assets/plugins/jquery/jquery.min.js"></script>

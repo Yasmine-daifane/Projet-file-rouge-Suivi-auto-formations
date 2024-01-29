@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +28,10 @@
     <link rel="stylesheet" href="../../Assets/plugins/daterangepicker/daterangepicker.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+    <!-- <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    /> -->
     <!-- summernote -->
     <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
     <script src="https://cdn.tiny.cloud/1/d2nq8cur7uv9c3ovyevwee5l5e5k2ym6hodsnpuuy1hyy1yf/tinymce/6/tinymce.min.js"
@@ -36,11 +40,8 @@
 </head>
 
 <body class="sidebar-mini" style="height: auto;">
-
     <div class="wrapper">
-
-
-        <!-- nav -->
+        <!-- Navigation and Sidebar content here... -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -48,10 +49,8 @@
                 </li>
             </ul>
         </nav>
-        <!-- nav -->
-
-         <!-- aside -->
-         <aside class="main-sidebar sidebar-dark-primary elevation-4">
+       
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
                 <img src="../../Assets/dist/img/solicoders-logo.png" class="brand-image img-circle elevation-3" alt="Group Image">
@@ -69,7 +68,7 @@
                             <a href="./index.html" class="nav-link ">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                  AutoFormations
+                                 AutoFormations
                                 </p>
                             </a>
                         </li>
@@ -77,7 +76,7 @@
                             <a href="././chapitres/index.html" class="nav-link ">
                                 <i class="fa-solid fa-users pl-1 pr-1"></i>
                                 <p>
-                           chapitres
+                                  Chapitres
                                 </p>
                             </a>
                         </li>
@@ -85,103 +84,154 @@
                             <a href="/Formateur/qcms/index.html" class="nav-link ">
                                 <i class="fa-solid fa-users pl-1 pr-1"></i>
                                 <p>
-                                    Qcms
+                                 Qcms
                                 </p>
                             </a>
                         </li>
-
-
                         <li class="nav-item">
                             <a href="/Formateur/index.html" class="nav-link ">
                                 <i class="fa-solid fa-users pl-1 pr-1"></i>
                                 <p>
-                                  Statistiques
+                               Statistiques
                                 </p>
                             </a>
                         </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
-
-
-
         <div class="content-wrapper" style="min-height: 1302.4px;">
 
             <div class="content-header">
-              
+        
             </div>
-
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-
                             <div class="card card-info">
                                 <div class="card-header">
-                                    <h3 class="card-title">Ajouter AutoFormation</h3>
+                                    <h3 class="card-title">Modifier QCM</h3>
                                 </div>
-                                <form>
+                                <form id="editQcmForm">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <div class="form-group">
-                                                <label for="nom">Nom</label>
-                                                <input name="nom" type="text" class="form-control" id="nom" placeholder="Entrez le nom" value="Formation Laravel">
+                                            <label for="qcmName">Nom du QCM</label>
+                                            <input name="qcmName" type="text" class="form-control" id="qcmName" placeholder="Nom du QCM">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="chapterSelect">Sélectionner le chapitre</label>
+                                            <select name="chapterSelect" class="form-control" id="chapterSelect">
+                                                <option value="1">Chapitre 1</option>
+                                                <option value="2">Chapitre 2</option>
+                                                <!-- Add more chapters as needed -->
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" id="questionsContainer">
+                                            <label for="questions">Questions</label>
+
+                                            <!-- Individual input fields for each question -->
+                                            <div class="question mb-4">
+                                                <input name="questions[]" type="text" class="form-control mb-4 " placeholder="Entrez la question">
+
+                                                <!-- Options for the question -->
+                                                <div class="options">
+                                                    <div class="option d-flex mb-2">
+                                                        <input class="mr-1" name="correctAnswer" type="radio" value="1">
+                                                        <input name="options[]" type="text" class="form-control" placeholder="Option 1">
+                                                    </div>
+
+                                                    <div class="option d-flex mb-2">
+                                                        <input class="mr-1" name="correctAnswer" type="radio" value="2">
+                                                        <input name="options[]" type="text" class="form-control" placeholder="Option 2">
+                                                    </div>
+
+                                                    <div class="option d-flex mb-2 ">
+                                                        <input class="mr-1" name="correctAnswer" type="radio" value="3">
+                                                        <input name="options[]" type="text" class="form-control" placeholder="Option 3">
+                                                    </div>
+                                                </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <input name="description" type="text" class="form-control" id="description" placeholder="Description de la formation" value="Formation avancée sur le framework Laravel">
-                                            </div>
-                                           
-                                            <div class="form-group">
-                                                <label for="nombreChapitres">Nombre chapitres</label>
-                                                <input name="nombreChapitres" type="number" class="form-control" id="nombreChapitres" value="27">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="reference">Reference</label>
-                                                <input name="reference" type="url" class="form-control" id="reference" placeholder="Entrez la référence" pattern="https://.*" value="https://grafikart.fr/formations/laravel">
-                                                <small id="referenceHelp" class="form-text text-muted">Entrez un lien URL valide (commençant par https://).</small>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="startDate">Date début</label>
-                                                <input name="startDate" type="date" class="form-control" id="startDate" placeholder="Date début" value="2023-05-01">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="endDate">Date fin</label>
-                                                <input name="endDate" type="date" class="form-control" id="endDate" placeholder="Date fin" value="2023-05-03">
-                                            </div>
-
+                                            <button type="button" class="btn btn-info" onclick="addQuestion()">Edite une question</button>
+                                        </div>
                                     </div>
 
                                     <div class="card-footer">
-                                        <a href="/Formateur/auto-formations/index.html" class="btn btn-default">Cancel</a>
-                                        <a href="/Formateur/auto-formations/index.html" class="btn btn-info" >Submit</a>
-                                       
+                                        <a href="/Formateur/qcms/index.html" class="btn btn-default">Annuler</a>
+                                        <a href="/Formateur/qcms/index.html" type="submit" class="btn btn-info">Modifier</a>
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </section>
 
+            <script>
+                // Your script for adding questions...
+                function addQuestion() {
+                    var questionsContainer = document.getElementById('questionsContainer');
+            
+                    var questionDiv = document.createElement('div');
+                    questionDiv.className = 'question mb-3';
+            
+                    var questionLabel = document.createElement('label');
+                    questionLabel.for = 'question';
+                    questionLabel.innerHTML = 'question';
+            
+                    var questionInput = document.createElement('input');
+                    questionInput.name = 'questions[]';
+                    questionInput.type = 'text';
+                    questionInput.className = 'form-control mb-3';
+                    questionInput.placeholder = 'Question';
+            
+                    // Options for the question
+                    var optionDiv1 = createOptionDiv(1);
+                    var optionDiv2 = createOptionDiv(2);
+                    var optionDiv3 = createOptionDiv(3);
+            
+                    // Adding all elements to the questionDiv
+                    questionDiv.appendChild(questionLabel);
+                    questionDiv.appendChild(questionInput);
+                    questionDiv.appendChild(optionDiv1);
+                    questionDiv.appendChild(optionDiv2);
+                    questionDiv.appendChild(optionDiv3);
+            
+                    questionsContainer.appendChild(questionDiv);
+                }
+            
+                function createOptionDiv(optionNumber) {
+                    var optionDiv = document.createElement('div');
+                    optionDiv.className = 'option d-flex mb-2 mr-1';
+            
+                    var radioInput = document.createElement('input');
+                    radioInput.name = 'correctAnswer';
+                    radioInput.type = 'radio';
+                    radioInput.value = optionNumber;
+            
+                    var optionInput = document.createElement('input');
+                    optionInput.name = 'options[]';
+                    optionInput.type = 'text';
+                    optionInput.className = 'form-control mr-1';
+                    optionInput.placeholder = 'Option ' + optionNumber;
+            
+                    optionDiv.appendChild(radioInput);
+                    optionDiv.appendChild(optionInput);
+            
+                    return optionDiv;
+                }
+            </script>
         </div>
-
- 
-
+        <!-- Your footer and scripts content here... -->
 
 
-
-
-    <!-- scripts -->
+          <!-- scripts -->
     <!-- jQuery -->
     <script src="../../Assets/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -218,7 +268,7 @@
     <script src="../../Assets/dist/js/pages/dashboard.js"></script>
     <script src="../../Assets/dist/js/validationForm.js"></script>
     <!-- scripts -->
-
+    </div>
 </body>
 
 </html>
